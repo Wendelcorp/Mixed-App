@@ -1,5 +1,5 @@
 class MixesController < ApplicationController
-  before_action :set_mix, only: [:show]
+  before_action :set_mix, only: [:show, :destroy]
 
   def index
     @mixes = Mix.all
@@ -14,6 +14,12 @@ class MixesController < ApplicationController
   def create
     @mix = Mix.new(mix_params)
     @mix.save
+
+    redirect_to @mix
+  end
+
+  def destroy
+    @mix.destroy
 
     redirect_to mixes_path
   end

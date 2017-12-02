@@ -12,8 +12,11 @@
     <%= f.label :source %><br />
     <%= f.text_field :source %>
   </div>
+
+  <%= f.hidden_field :mix_id, { :value => params[:id]} %>
+
   <div class="actions">
     <%= f.submit "Create song" %>
   </div>
-  
+
 <% end %>

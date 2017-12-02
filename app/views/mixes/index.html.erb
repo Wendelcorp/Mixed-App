@@ -4,5 +4,7 @@
 <% @mixes.each do |mix| %>
   <%= mix.name %>
   <%= mix.description %>
+  <%= link_to 'Show Mix', mix_path(mix) %>
+  <td><%= link_to 'Delete', mix, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   <br>
 <% end %>
