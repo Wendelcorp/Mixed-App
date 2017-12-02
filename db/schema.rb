@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171202145603) do
+ActiveRecord::Schema.define(version: 20171202155046) do
+
+  create_table "mixes", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "songs", force: :cascade do |t|
     t.string "artist"
@@ -18,6 +25,8 @@ ActiveRecord::Schema.define(version: 20171202145603) do
     t.string "source"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "mix_id"
+    t.index ["mix_id"], name: "index_songs_on_mix_id"
   end
 
 end
