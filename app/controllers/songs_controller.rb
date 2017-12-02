@@ -8,7 +8,7 @@ class SongsController < ApplicationController
   def create
     @song = Song.new(song_params)
     @song.save
-    redirect_to songs_path
+    redirect_to mix_path(@song.mix_id)
   end
 
   private

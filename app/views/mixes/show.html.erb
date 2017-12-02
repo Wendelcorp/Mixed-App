@@ -20,3 +20,10 @@
   </div>
 
 <% end %>
+
+<% @songs.each do |song| %>
+  <%= song.artist %>
+  <%= song.name %>
+  <%= song.source %>
+  <br>
+<% end %>
