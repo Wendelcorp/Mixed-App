@@ -2,9 +2,10 @@
 <%= render 'form' %>
 
 <% @mixes.each do |mix| %>
+  <% next if mix.new_record? %>
   <%= mix.name %>
   <%= mix.description %>
-  <%= link_to 'Show Mix', mix_path(mix) %>
-  <td><%= link_to 'Delete', mix, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <%= link_to 'Show Mix', mix %>
+  <%= link_to 'Delete', mix, method: :delete, data: { confirm: 'Are you sure?' } %>
   <br>
 <% end %>

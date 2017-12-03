@@ -2,6 +2,7 @@
 <%= render 'song_form' %>
 
 <% @songs.each do |song| %>
+  <% next if song.new_record? %>
   <%= song.artist %>
   <%= song.name %>
   <%= song.source %>

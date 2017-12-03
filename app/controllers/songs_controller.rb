@@ -2,7 +2,7 @@ class SongsController < ApplicationController
   before_action :set_song, only: [:destroy]
 
   def create
-    @song = Song.new(song_params)
+    @song = current_user.songs.build(song_params)
     @song.save
     redirect_to mix_path(@song.mix_id)
   end

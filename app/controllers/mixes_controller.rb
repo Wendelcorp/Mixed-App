@@ -2,17 +2,17 @@ class MixesController < ApplicationController
   before_action :set_mix, only: [:show, :destroy]
 
   def index
-    @mixes = Mix.all
-    @mix = Mix.new
+    @mixes = current_user.mixes
+    @mix = current_user.mixes.build
   end
 
   def show
-    @song = Song.new
+    @song = @mix.songs.build
     @songs = @mix.songs
   end
 
   def create
-    @mix = Mix.new(mix_params)
+    @mix = current_user.mixes.build(mix_params)
     @mix.save
 
     redirect_to @mix
